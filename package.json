@@ -1,0 +1,13 @@
+{
+  "name": "boonies-on-the-bayou",
+  "version": "1.0.0",
+  "description": "Website for Boonies on the Bayou — BBQ, seafood & Southern soul in Bay St. Louis, MS",
+  "private": true,
+  "scripts": {
+    "dev": "npx convex dev",
+    "deploy": "npx convex deploy"
+  },
+  "dependencies": {
+    "convex": "^1.17.0"
+  }
+}
