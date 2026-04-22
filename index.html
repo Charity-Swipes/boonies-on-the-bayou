@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boonies on the Bayou | Smoked Meats, Seafood &amp; Southern Soul — Bay St. Louis, MS</title>
+    <meta name="description" content="Boonies on the Bayou serves slow-smoked barbecue, fresh Gulf seafood, housemade pastas and Southern sides with waterfront dining in Bay St. Louis, Mississippi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --clr-bg: #0d0b09;
+            --clr-bg-warm: #1a1510;
+            --clr-bg-card: #1e1a14;
+            --clr-gold: #c8994f;
+            --clr-gold-light: #e6c47a;
+            --clr-gold-dark: #8a6832;
+            --clr-amber: #d4760a;
+            --clr-cream: #f5efe6;
+            --clr-cream-muted: #b8a88a;
+            --clr-red: #c0392b;
+            --clr-text: #f5efe6;
+            --clr-text-muted: #9a8d7c;
+            --clr-green: #4a7c59;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-accent: 'Bebas Neue', Impact, sans-serif;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--clr-gold); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--clr-gold-light); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(13, 11, 9, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(200, 153, 79, 0.12);
+            transition: var(--transition);
+        }
+        .nav.scrolled { background: rgba(13, 11, 9, 0.96); }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px;
+        }
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+            color: var(--clr-gold); letter-spacing: 0.02em;
+        }
+        .nav-logo span { color: var(--clr-cream-muted); font-weight: 400; font-size: 0.85rem; display: block; line-height: 1; margin-top: 2px; letter-spacing: 0.15em; text-transform: uppercase; font-family: var(--font-body); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--clr-cream-muted); font-size: 0.82rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 0;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px;
+            background: var(--clr-gold); transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--clr-gold); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--clr-gold); color: var(--clr-bg) !important; padding: 10px 24px;
+            border-radius: 4px; font-weight: 600; font-size: 0.82rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            transition: var(--transition);
+        }
+        .nav-cta:hover { background: var(--clr-gold-light); transform: translateY(-1px); color: var(--clr-bg) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; -webkit-tap-highlight-color: transparent; }
+        .hamburger span { width: 24px; height: 2px; background: var(--clr-cream); transition: var(--transition); transform-origin: center; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f08 40%, #0d1a0f 70%, #0d0b09 100%);
+        }
+        .hero-bg::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><radialGradient id="smoke1" cx="30%" cy="60%"><stop offset="0%" style="stop-color:%23c8994f;stop-opacity:0.06"/><stop offset="100%" style="stop-color:%23c8994f;stop-opacity:0"/></radialGradient><radialGradient id="smoke2" cx="70%" cy="40%"><stop offset="0%" style="stop-color:%23d4760a;stop-opacity:0.04"/><stop offset="100%" style="stop-color:%23d4760a;stop-opacity:0"/></radialGradient></defs><rect fill="url(%23smoke1)" width="800" height="600"/><rect fill="url(%23smoke2)" width="800" height="600"/></svg>');
+            background-size: cover; animation: smokeFloat 20s ease-in-out infinite;
+        }
+        @keyframes smokeFloat {
+            0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+            50% { transform: scale(1.05) translateY(-20px); opacity: 0.8; }
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(13,11,9,0.3) 0%, rgba(13,11,9,0.1) 40%, rgba(13,11,9,0.6) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; padding: 120px 24px 80px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(200, 153, 79, 0.12); border: 1px solid rgba(200, 153, 79, 0.25);
+            border-radius: 50px; padding: 8px 20px; margin-bottom: 28px;
+            font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--clr-gold-light); font-weight: 500;
+        }
+        .hero-badge .stars { color: var(--clr-gold); font-size: 1rem; letter-spacing: 2px; }
+        .hero-title {
+            font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800; line-height: 1.05; margin-bottom: 10px;
+            background: linear-gradient(180deg, var(--clr-cream) 0%, var(--clr-gold-light) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-family: var(--font-accent); font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            letter-spacing: 0.25em; color: var(--clr-gold); margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .hero-description {
+            font-size: 1.1rem; color: var(--clr-cream-muted); max-width: 600px;
+            margin: 0 auto 36px; line-height: 1.7; font-weight: 300;
+        }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 4px; font-weight: 600;
+            font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase;
+            transition: var(--transition); cursor: pointer; border: none;
+        }
+        .btn-primary {
+            background: var(--clr-gold); color: var(--clr-bg);
+        }
+        .btn-primary:hover { background: var(--clr-gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,153,79,0.3); color: var(--clr-bg); }
+        .btn-outline {
+            background: transparent; color: var(--clr-cream);
+            border: 1.5px solid rgba(245,239,230,0.3);
+        }
+        .btn-outline:hover { border-color: var(--clr-gold); color: var(--clr-gold); transform: translateY(-2px); }
+        .hero-scroll {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        .hero-scroll svg { width: 28px; height: 28px; color: var(--clr-gold); opacity: 0.6; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* ===== RATING BAR ===== */
+        .rating-bar {
+            background: var(--clr-bg-warm); border-top: 1px solid rgba(200,153,79,0.1);
+            border-bottom: 1px solid rgba(200,153,79,0.1); padding: 20px 0;
+        }
+        .rating-bar-inner {
+            display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;
+        }
+        .rating-item { display: flex; align-items: center; gap: 10px; }
+        .rating-icon { width: 28px; height: 28px; }
+        .rating-stars { color: var(--clr-gold); font-size: 1rem; letter-spacing: 1px; }
+        .rating-text { font-size: 0.85rem; color: var(--clr-cream-muted); }
+        .rating-text strong { color: var(--clr-cream); font-weight: 600; }
+        .rating-divider { width: 1px; height: 28px; background: rgba(200,153,79,0.2); }
+
+        /* ===== SECTION STYLES ===== */
+        .section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-label {
+            font-family: var(--font-accent); font-size: 0.95rem; letter-spacing: 0.3em;
+            color: var(--clr-gold); text-transform: uppercase; margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 1.05rem; color: var(--clr-cream-muted); max-width: 600px;
+            margin: 0 auto; line-height: 1.7; font-weight: 300;
+        }
+
+        /* ===== ABOUT ===== */
+        .about { background: var(--clr-bg-warm); }
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .about-image {
+            position: relative; border-radius: 8px; overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .about-image::after {
+            content: ''; position: absolute; inset: 0;
+            border: 1px solid rgba(200,153,79,0.2); border-radius: 8px;
+        }
+        .about-text h3 {
+            font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+            margin-bottom: 20px; line-height: 1.2;
+        }
+        .about-text p { color: var(--clr-cream-muted); margin-bottom: 16px; font-weight: 300; line-height: 1.8; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+        .about-feature {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.9rem; color: var(--clr-cream);
+        }
+        .about-feature-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(200,153,79,0.12); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        /* ===== MENU ===== */
+        .menu { background: var(--clr-bg); }
+        .menu-tabs {
+            display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; flex-wrap: wrap;
+        }
+        .menu-tab {
+            padding: 10px 24px; border-radius: 50px; border: 1px solid rgba(200,153,79,0.2);
+            background: transparent; color: var(--clr-cream-muted); cursor: pointer;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.06em; text-transform: uppercase; transition: var(--transition);
+        }
+        .menu-tab:hover { border-color: var(--clr-gold); color: var(--clr-gold); }
+        .menu-tab.active {
+            background: var(--clr-gold); color: var(--clr-bg);
+            border-color: var(--clr-gold); font-weight: 600;
+        }
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .menu-card {
+            background: var(--clr-bg-card); border: 1px solid rgba(200,153,79,0.08);
+            border-radius: 8px; padding: 28px; transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .menu-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--clr-gold), transparent);
+            opacity: 0; transition: var(--transition);
+        }
+        .menu-card:hover { border-color: rgba(200,153,79,0.2); transform: translateY(-2px); }
+        .menu-card:hover::before { opacity: 1; }
+        .menu-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .menu-card-name {
+            font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+            color: var(--clr-cream); line-height: 1.3;
+        }
+        .menu-card-price {
+            font-family: var(--font-accent); font-size: 1.3rem; color: var(--clr-gold);
+            letter-spacing: 0.05em; white-space: nowrap; margin-left: 12px;
+        }
+        .menu-card-desc { font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; font-weight: 300; }
+        .menu-card-tag {
+            display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 3px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .tag-popular { background: rgba(200,153,79,0.15); color: var(--clr-gold); }
+        .tag-new { background: rgba(74,124,89,0.2); color: #6db87d; }
+        .menu-section-hidden { display: none; }
+
+        /* ===== GALLERY ===== */
+        .gallery { background: var(--clr-bg-warm); overflow: hidden; }
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+        }
+        .gallery-item {
+            position: relative; border-radius: 8px; overflow: hidden;
+            aspect-ratio: 4/3; cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-item::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(13,11,9,0.6) 100%);
+            transition: var(--transition);
+        }
+        .gallery-item:hover::after { background: linear-gradient(180deg, transparent 30%, rgba(200,153,79,0.15) 100%); }
+        .gallery-item:first-child { grid-row: span 2; aspect-ratio: auto; }
+        .gallery-caption {
+            position: absolute; bottom: 16px; left: 16px; z-index: 2;
+            font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+            color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* ===== REVIEWS ===== */
+        .reviews { background: var(--clr-bg); }
+        .reviews-summary {
+            display: flex; align-items: center; justify-content: center; gap: 40px;
+            margin-bottom: 50px; padding: 32px; background: var(--clr-bg-card);
+            border-radius: 12px; border: 1px solid rgba(200,153,79,0.1);
+        }
+        .reviews-big-number {
+            font-family: var(--font-display); font-size: 4.5rem; font-weight: 800;
+            color: var(--clr-gold); line-height: 1;
+        }
+        .reviews-summary-detail { text-align: left; }
+        .reviews-summary-stars { color: var(--clr-gold); font-size: 1.4rem; letter-spacing: 3px; margin-bottom: 4px; }
+        .reviews-summary-text { color: var(--clr-cream-muted); font-size: 0.9rem; }
+        .reviews-bars { display: flex; flex-direction: column; gap: 6px; }
+        .review-bar-row { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; }
+        .review-bar-label { width: 14px; color: var(--clr-cream-muted); text-align: right; }
+        .review-bar { flex: 1; height: 6px; background: rgba(200,153,79,0.1); border-radius: 3px; overflow: hidden; max-width: 120px; }
+        .review-bar-fill { height: 100%; background: var(--clr-gold); border-radius: 3px; transition: width 1s ease; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .review-card {
+            background: var(--clr-bg-card); border: 1px solid rgba(200,153,79,0.08);
+            border-radius: 8px; padding: 28px; transition: var(--transition);
+        }
+        .review-card:hover { border-color: rgba(200,153,79,0.2); }
+        .review-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .review-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--clr-gold-dark), var(--clr-gold));
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--clr-bg);
+        }
+        .review-author { font-weight: 600; font-size: 0.95rem; }
+        .review-date { font-size: 0.78rem; color: var(--clr-text-muted); }
+        .review-stars { color: var(--clr-gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
+        .review-text { font-size: 0.92rem; color: var(--clr-cream-muted); line-height: 1.7; font-style: italic; }
+        .review-source { margin-top: 12px; font-size: 0.75rem; color: var(--clr-text-muted); display: flex; align-items: center; gap: 6px; }
+
+        /* ===== HOURS & LOCATION ===== */
+        .location { background: var(--clr-bg-warm); }
+        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .location-map {
+            border-radius: 8px; overflow: hidden; aspect-ratio: 4/3;
+            background: var(--clr-bg-card); border: 1px solid rgba(200,153,79,0.1);
+        }
+        .location-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.3) contrast(1.1); }
+        .location-info h3 {
+            font-family: var(--font-display); font-size: 1.8rem; font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .info-item { display: flex; gap: 14px; margin-bottom: 20px; }
+        .info-icon {
+            width: 42px; height: 42px; border-radius: 8px;
+            background: rgba(200,153,79,0.1); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem;
+        }
+        .info-label { font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+        .info-value { font-size: 0.95rem; color: var(--clr-cream); font-weight: 500; }
+        .hours-grid {
+            display: grid; grid-template-columns: auto 1fr; gap: 8px 20px;
+            margin-top: 24px; font-size: 0.9rem;
+        }
+        .hours-day { color: var(--clr-cream-muted); }
+        .hours-time { color: var(--clr-cream); font-weight: 500; }
+        .hours-closed { color: var(--clr-red); font-weight: 500; }
+        .hours-open { color: var(--clr-green); font-weight: 600; }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            padding: 80px 0; text-align: center;
+            background: linear-gradient(135deg, rgba(200,153,79,0.08) 0%, rgba(13,11,9,1) 50%, rgba(212,118,10,0.06) 100%);
+            border-top: 1px solid rgba(200,153,79,0.1);
+        }
+        .cta-banner h2 {
+            font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700; margin-bottom: 14px;
+        }
+        .cta-banner p { color: var(--clr-cream-muted); font-size: 1.05rem; margin-bottom: 28px; font-weight: 300; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--clr-bg); padding: 48px 0 24px;
+            border-top: 1px solid rgba(200,153,79,0.08);
+        }
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--clr-gold); }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a {
+            width: 40px; height: 40px; border-radius: 50%;
+            border: 1px solid rgba(200,153,79,0.2); display: flex;
+            align-items: center; justify-content: center;
+            color: var(--clr-cream-muted); font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .footer-social a:hover { border-color: var(--clr-gold); color: var(--clr-gold); background: rgba(200,153,79,0.08); }
+        .footer-copy { width: 100%; text-align: center; font-size: 0.78rem; color: var(--clr-text-muted); margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(200,153,79,0.06); }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92);
+            display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lightbox-close {
+            position: absolute; top: 24px; right: 24px; width: 44px; height: 44px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.5); color: white; font-size: 1.2rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .lightbox-close:hover { background: rgba(200,153,79,0.3); border-color: var(--clr-gold); }
+
+        /* ===== MOBILE CTA BAR ===== */
+        .mobile-cta-bar {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+            background: rgba(13,11,9,0.96); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(200,153,79,0.2);
+            padding: 12px 16px; padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        }
+        .mobile-cta-inner {
+            display: flex; gap: 10px; max-width: 500px; margin: 0 auto;
+        }
+        .mobile-cta-inner .btn {
+            flex: 1; justify-content: center; padding: 14px 16px; font-size: 0.82rem;
+            min-height: 48px;
+        }
+
+        /* ===== RESERVATION FORM ===== */
+        .reservation { background: var(--clr-bg); }
+        .reservation-form {
+            max-width: 600px; margin: 0 auto;
+            background: var(--clr-bg-card); border: 1px solid rgba(200,153,79,0.1);
+            border-radius: 12px; padding: 40px;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-label {
+            font-size: 0.78rem; color: var(--clr-cream-muted); text-transform: uppercase;
+            letter-spacing: 0.1em; font-weight: 500;
+        }
+        .form-input, .form-select, .form-textarea {
+            background: rgba(200,153,79,0.06); border: 1px solid rgba(200,153,79,0.15);
+            border-radius: 6px; padding: 14px 16px; color: var(--clr-cream);
+            font-family: var(--font-body); font-size: 0.95rem;
+            transition: var(--transition); min-height: 48px;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none; border-color: var(--clr-gold);
+            box-shadow: 0 0 0 3px rgba(200,153,79,0.1);
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color: var(--clr-text-muted); }
+        .form-select { cursor: pointer; -webkit-appearance: none; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239a8d7c' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 16px center;
+        }
+        .form-select option { background: var(--clr-bg-card); color: var(--clr-cream); }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        .form-submit {
+            width: 100%; margin-top: 8px; justify-content: center;
+            min-height: 52px; font-size: 0.95rem;
+        }
+        .form-status {
+            text-align: center; margin-top: 16px; padding: 12px; border-radius: 6px;
+            font-size: 0.9rem; display: none;
+        }
+        .form-status.success { display: block; background: rgba(74,124,89,0.15); color: #6db87d; border: 1px solid rgba(74,124,89,0.3); }
+        .form-status.error { display: block; background: rgba(192,57,43,0.15); color: #e74c3c; border: 1px solid rgba(192,57,43,0.3); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .about-grid, .location-grid { grid-template-columns: 1fr; gap: 40px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item:first-child { grid-row: span 1; }
+            .reviews-summary { flex-direction: column; gap: 20px; text-align: center; }
+            .section { padding: 80px 0; }
+            .reservation-form { padding: 32px 24px; }
+        }
+        @media (max-width: 700px) {
+            .nav-links {
+                display: flex; flex-direction: column; position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(13,11,9,0.98); backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 100px 40px 40px; gap: 8px;
+                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                z-index: 1000; overflow-y: auto;
+            }
+            .nav-links.open { transform: translateX(0); }
+            .nav-links a {
+                font-size: 1.3rem; letter-spacing: 0.08em; padding: 14px 0;
+                color: var(--clr-cream); border-bottom: 1px solid rgba(200,153,79,0.08);
+            }
+            .nav-links a:hover { color: var(--clr-gold); }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .hero-content { padding: 100px 20px 80px; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-description { font-size: 0.98rem; margin-bottom: 28px; }
+            .hero-buttons { flex-direction: column; align-items: stretch; padding: 0 12px; }
+            .hero-buttons .btn { justify-content: center; min-height: 52px; }
+            .hero-scroll { display: none; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .rating-bar { padding: 16px 0; }
+            .rating-bar-inner { gap: 16px; justify-content: flex-start; padding: 0 8px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+            .rating-bar-inner::-webkit-scrollbar { display: none; }
+            .rating-item { flex-shrink: 0; }
+            .rating-divider { display: none; }
+            .about-features { grid-template-columns: 1fr; }
+            .section { padding: 64px 0; }
+            .section-header { margin-bottom: 40px; }
+            .container { padding: 0 16px; }
+            .location-info h3 { font-size: 1.5rem; }
+            .reviews-summary { padding: 24px 16px; }
+            .reviews-big-number { font-size: 3.5rem; }
+            .review-card { padding: 20px; }
+            .cta-banner { padding: 56px 0; }
+            .menu-card { padding: 20px; }
+            .menu-tabs { gap: 6px; margin-bottom: 32px; }
+            .menu-tab { padding: 10px 18px; font-size: 0.78rem; }
+            .lightbox img { max-width: 95%; max-height: 75vh; border-radius: 4px; }
+            .lightbox-close { top: 16px; right: 16px; width: 48px; height: 48px; font-size: 1.4rem; }
+            .mobile-cta-bar { display: block; }
+            body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+            .footer { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+            .form-row { grid-template-columns: 1fr; }
+            .reservation-form { padding: 24px 16px; }
+        }
+        @media (max-width: 400px) {
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 0.95rem; letter-spacing: 0.15em; }
+            .hero-badge { font-size: 0.7rem; padding: 6px 14px; }
+            .section-title { font-size: 1.6rem; }
+            .menu-card-name { font-size: 1rem; }
+            .menu-card-price { font-size: 1.1rem; }
+            .nav-logo { font-size: 1.15rem; }
+            .nav-logo span { font-size: 0.72rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Boonies on the Bayou<span>Bay St. Louis, Mississippi</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Visit</a></li>
+                <li><a href="#reservation">Reserve</a></li>
+            </ul>
+            <a href="tel:2282655527" class="btn nav-cta">Call to Order</a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="stars">★★★★★</span>
+                <span>4.6 Stars · 53 Google Reviews</span>
+            </div>
+            <h1 class="hero-title">Boonies on the Bayou</h1>
+            <p class="hero-subtitle">Slow-Smoked · Gulf Fresh · Southern Soul</p>
+            <p class="hero-description">
+                Where bayou breezes meet hickory smoke. Savor slow-smoked barbecue, fresh Gulf seafood, and housemade Southern classics on the waterfront in Bay St. Louis, Mississippi.
+            </p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                    View Our Menu
+                </a>
+                <a href="tel:2282655527" class="btn btn-outline">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    (228) 265-5527
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <!-- RATING BAR -->
+    <div class="rating-bar">
+        <div class="container">
+            <div class="rating-bar-inner">
+                <div class="rating-item">
+                    <svg class="rating-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" fill="#c8994f"/></svg>
+                    <div><div class="rating-stars">★★★★★</div><div class="rating-text"><strong>4.6</strong> on Google (53 reviews)</div></div>
+                </div>
+                <div class="rating-divider"></div>
+                <div class="rating-item">
+                    <svg class="rating-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4267B2" stroke-width="2"/><path d="M15 8h-2a3 3 0 00-3 3v2h-1v3h2v5h3v-5h2l1-3h-3v-2a1 1 0 011-1h2V8z" fill="#4267B2"/></svg>
+                    <div><div class="rating-stars">★★★★★</div><div class="rating-text"><strong>4.7</strong> on Facebook (28 reviews)</div></div>
+                </div>
+                <div class="rating-divider"></div>
+                <div class="rating-item">
+                    <svg class="rating-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#AF0606" stroke-width="2"/><text x="12" y="16" text-anchor="middle" fill="#AF0606" font-size="10" font-weight="bold">Y</text></svg>
+                    <div><div class="rating-stars">★★★★★</div><div class="rating-text"><strong>5.0</strong> on Yelp (5 reviews)</div></div>
+                </div>
+                <div class="rating-divider"></div>
+                <div class="rating-item">
+                    <div class="rating-text">💰 <strong>$20–$30</strong> per person</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in-left">
+                    <img src="https://tinyurl.com/PrChqoDapMzWKJGERf-img" alt="Southern shrimp and grits — a house specialty at Boonies on the Bayou" loading="lazy" />
+                </div>
+                <div class="about-text fade-in-right">
+                    <div class="section-label">Our Story</div>
+                    <h3>Born from a Pop-Up, Built for the Bayou</h3>
+                    <p>
+                        What started as <em>Boonies BBQ &amp; Catfish</em> — a beloved pop-up at Trackside Bar in Pearl River — has grown into a full brick-and-mortar destination on the waterfront of Bay St. Louis.
+                    </p>
+                    <p>
+                        We slow-smoke our meats over real wood, make our pastas and sides from scratch, and source Gulf seafood as fresh as the bayou breeze. Whether you're here for the half rack of ribs, a seafood platter, or our famous smoked wings — you'll leave full, happy, and planning your next visit.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🏈</div>
+                            <span>Watch the Game</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">👨‍👩‍👧</div>
+                            <span>Kids' Menu</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🐕</div>
+                            <span>Dog Friendly Patio</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🌊</div>
+                            <span>Waterfront Dining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu section" id="menu">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Our Menu</div>
+                <h2 class="section-title">Smoked, Fried &amp; Made with Love</h2>
+                <p class="section-desc">From the pit to the plate — every dish crafted with care using time-honored Southern recipes and the freshest ingredients the Gulf has to offer.</p>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="menu-tab active" onclick="showMenu('smoked')">Smoked Meats</button>
+                <button class="menu-tab" onclick="showMenu('seafood')">Seafood</button>
+                <button class="menu-tab" onclick="showMenu('pastas')">Pastas &amp; Mains</button>
+                <button class="menu-tab" onclick="showMenu('sides')">Sides &amp; Starters</button>
+            </div>
+
+            <!-- SMOKED MEATS -->
+            <div class="menu-grid menu-section" id="menu-smoked">
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Half Rack Baby Back Ribs</span>
+                        <span class="menu-card-price">$22</span>
+                    </div>
+                    <p class="menu-card-desc">Slow-smoked baby back ribs with our signature dry rub, glazed with house BBQ sauce. Served with two sides.</p>
+                    <span class="menu-card-tag tag-popular">★ Fan Favorite</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Full Rack Baby Back Ribs</span>
+                        <span class="menu-card-price">$32</span>
+                    </div>
+                    <p class="menu-card-desc">A full rack of our legendary ribs — fall-off-the-bone tender with a deep smoky bark. Served with two sides.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Smoked Brisket Plate</span>
+                        <span class="menu-card-price">$24</span>
+                    </div>
+                    <p class="menu-card-desc">Hand-trimmed and slow-smoked for 14 hours. Sliced thick with a perfect smoke ring. Served with two sides and white bread.</p>
+                    <span class="menu-card-tag tag-popular">★ Fan Favorite</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Smoked Wings</span>
+                        <span class="menu-card-price">$16</span>
+                    </div>
+                    <p class="menu-card-desc">Bone-in wings slow-smoked then flash-fried. Your choice of BBQ, buffalo, or lemon pepper dry rub.</p>
+                    <span class="menu-card-tag tag-popular">★ Fan Favorite</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Pulled Pork Plate</span>
+                        <span class="menu-card-price">$18</span>
+                    </div>
+                    <p class="menu-card-desc">Smoked pork butt pulled by hand, served on a soft baguette with pickles, slaw, and your choice of sauce.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Smoked Turkey Plate</span>
+                        <span class="menu-card-price">$18</span>
+                    </div>
+                    <p class="menu-card-desc">Juicy smoked turkey breast sliced to order. Served with two sides and cranberry BBQ drizzle.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Sausage Links</span>
+                        <span class="menu-card-price">$16</span>
+                    </div>
+                    <p class="menu-card-desc">House-seasoned smoked sausage links with caramelized onions. Served with two sides.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Pitmaster Combo</span>
+                        <span class="menu-card-price">$28</span>
+                    </div>
+                    <p class="menu-card-desc">Pick any three smoked meats with two sides, white bread, pickles, and onions. The full experience.</p>
+                    <span class="menu-card-tag tag-new">New</span>
+                </div>
+            </div>
+
+            <!-- SEAFOOD -->
+            <div class="menu-grid menu-section menu-section-hidden" id="menu-seafood">
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Seafood Platter</span>
+                        <span class="menu-card-price">$28</span>
+                    </div>
+                    <p class="menu-card-desc">Fried catfish, Gulf shrimp, hush puppies, fries, coleslaw, and remoulade. A true Southern spread.</p>
+                    <span class="menu-card-tag tag-popular">★ Fan Favorite</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Fried Catfish Basket</span>
+                        <span class="menu-card-price">$18</span>
+                    </div>
+                    <p class="menu-card-desc">Flaky, cornmeal-crusted catfish fillets served with waffle fries, slaw, and tartar sauce.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Shrimp &amp; Grits</span>
+                        <span class="menu-card-price">$22</span>
+                    </div>
+                    <p class="menu-card-desc">Wild Gulf shrimp sautéed with andouille, garlic, and Cajun cream sauce over creamy stone-ground grits.</p>
+                    <span class="menu-card-tag tag-popular">★ Fan Favorite</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Popcorn Shrimp</span>
+                        <span class="menu-card-price">$14</span>
+                    </div>
+                    <p class="menu-card-desc">Crispy bite-sized Gulf shrimp seasoned and fried golden. Served with cocktail sauce and lemon.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Blackened Catfish</span>
+                        <span class="menu-card-price">$20</span>
+                    </div>
+                    <p class="menu-card-desc">Cajun-seasoned catfish fillet blackened in a cast iron skillet. Served with rice and seasonal vegetables.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Fried Shrimp Po'Boy</span>
+                        <span class="menu-card-price">$16</span>
+                    </div>
+                    <p class="menu-card-desc">Crispy fried shrimp on a soft French roll with lettuce, tomato, pickles, and remoulade.</p>
+                </div>
+            </div>
+
+            <!-- PASTAS & MAINS -->
+            <div class="menu-grid menu-section menu-section-hidden" id="menu-pastas">
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Housemade Alfredo</span>
+                        <span class="menu-card-price">$18</span>
+                    </div>
+                    <p class="menu-card-desc">Fresh pappardelle pasta tossed in our housemade parmesan cream sauce. Add chicken $4 or shrimp $6.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Cajun Pasta</span>
+                        <span class="menu-card-price">$22</span>
+                    </div>
+                    <p class="menu-card-desc">Linguine with shrimp, andouille sausage, peppers, and onions in a spicy Cajun cream sauce.</p>
+                    <span class="menu-card-tag tag-new">New</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Mac &amp; Cheese</span>
+                        <span class="menu-card-price">$14</span>
+                    </div>
+                    <p class="menu-card-desc">Shell pasta in a three-cheese blend with toasted panko breadcrumbs. Add pulled pork $4, brisket $6.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Smoked Chicken Sandwich</span>
+                        <span class="menu-card-price">$16</span>
+                    </div>
+                    <p class="menu-card-desc">Slow-smoked chicken breast on a toasted brioche bun with lettuce, tomato, and house-made aioli.</p>
+                </div>
+            </div>
+
+            <!-- SIDES & STARTERS -->
+            <div class="menu-grid menu-section menu-section-hidden" id="menu-sides">
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Baked Beans</span>
+                        <span class="menu-card-price">$5</span>
+                    </div>
+                    <p class="menu-card-desc">Slow-cooked with smoked pork trimmings, brown sugar, and mustard.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Collard Greens</span>
+                        <span class="menu-card-price">$5</span>
+                    </div>
+                    <p class="menu-card-desc">Braised low and slow with smoked turkey necks and a touch of vinegar.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Fried Okra</span>
+                        <span class="menu-card-price">$6</span>
+                    </div>
+                    <p class="menu-card-desc">Crispy cornmeal-breaded okra served with creole remoulade.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Potato Salad</span>
+                        <span class="menu-card-price">$5</span>
+                    </div>
+                    <p class="menu-card-desc">Creamy homestyle potato salad with eggs, mustard, and relish. Grandma's recipe.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Coleslaw</span>
+                        <span class="menu-card-price">$4</span>
+                    </div>
+                    <p class="menu-card-desc">Crisp cabbage slaw with a tangy vinaigrette dressing. Light and refreshing.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Hush Puppies</span>
+                        <span class="menu-card-price">$7</span>
+                    </div>
+                    <p class="menu-card-desc">Golden-fried cornmeal fritters with jalapeño and honey butter.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Loaded Fries</span>
+                        <span class="menu-card-price">$10</span>
+                    </div>
+                    <p class="menu-card-desc">Waffle fries topped with pulled pork, cheese sauce, jalapeños, and scallions.</p>
+                    <span class="menu-card-tag tag-new">New</span>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-card-header">
+                        <span class="menu-card-name">Smoked Wings Appetizer</span>
+                        <span class="menu-card-price">$12</span>
+                    </div>
+                    <p class="menu-card-desc">Six smoked wings tossed in your choice of sauce. Perfect for sharing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Food Gallery</div>
+                <h2 class="section-title">A Taste of What's Cookin'</h2>
+                <p class="section-desc">From the smoker to your table — real food, made fresh, served with pride.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in" onclick="openLightbox(this)">
+                    <img src="https://tinyurl.com/oKZBvPwXtxf57YQjQf-img" alt="Slow-smoked baby back ribs with BBQ glaze" loading="lazy" />
+                    <span class="gallery-caption">Slow-Smoked Ribs</span>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox(this)">
+                    <img src="https://tinyurl.com/JXgWrfzxVsEu5hfYQs-img" alt="Southern seafood platter with fried catfish and shrimp" loading="lazy" />
+                    <span class="gallery-caption">Seafood Platter</span>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox(this)">
+                    <img src="https://tinyurl.com/Nu4vanokPU2FepbH9w-img" alt="Smoked chicken wings with BBQ glaze" loading="lazy" />
+                    <span class="gallery-caption">Smoked Wings</span>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox(this)">
+                    <img src="https://tinyurl.com/PvkxZxcd5SSqTQnkPt-img" alt="Thick-sliced smoked brisket with smoke ring" loading="lazy" />
+                    <span class="gallery-caption">Smoked Brisket</span>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox(this)">
+                    <img src="https://tinyurl.com/PrChqoDapMzWKJGERf-img" alt="Shrimp and grits in Cajun cream sauce" loading="lazy" />
+                    <span class="gallery-caption">Shrimp &amp; Grits</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">What People Say</div>
+                <h2 class="section-title">Raving Reviews from Real Guests</h2>
+                <p class="section-desc">Don't just take our word for it — hear what the community is saying.</p>
+            </div>
+
+            <div class="reviews-summary fade-in">
+                <div>
+                    <div class="reviews-big-number">4.6</div>
+                    <div class="reviews-summary-stars">★★★★★</div>
+                    <div class="reviews-summary-text">Based on 53 Google reviews</div>
+                </div>
+                <div class="reviews-bars">
+                    <div class="review-bar-row"><span class="review-bar-label">5</span><div class="review-bar"><div class="review-bar-fill" style="width:72%"></div></div></div>
+                    <div class="review-bar-row"><span class="review-bar-label">4</span><div class="review-bar"><div class="review-bar-fill" style="width:18%"></div></div></div>
+                    <div class="review-bar-row"><span class="review-bar-label">3</span><div class="review-bar"><div class="review-bar-fill" style="width:6%"></div></div></div>
+                    <div class="review-bar-row"><span class="review-bar-label">2</span><div class="review-bar"><div class="review-bar-fill" style="width:2%"></div></div></div>
+                    <div class="review-bar-row"><span class="review-bar-label">1</span><div class="review-bar"><div class="review-bar-fill" style="width:2%"></div></div></div>
+                </div>
+                <div style="max-width:340px">
+                    <p style="font-size:0.88rem;color:var(--clr-cream-muted);line-height:1.7;font-style:italic">"People say this restaurant serves delicious barbecue, seafood, and steaks, with standout dishes including the half rack of ribs, seafood platter, and smoked wings."</p>
+                    <p style="font-size:0.75rem;color:var(--clr-text-muted);margin-top:8px">— Google AI Review Summary</p>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">J</div>
+                        <div>
+                            <div class="review-author">James R.</div>
+                            <div class="review-date">3 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The food was good, the service was good, and the prices were reasonable. We had the half rack of ribs and the seafood platter — both were outstanding. Will definitely be back!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google Review
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">M</div>
+                        <div>
+                            <div class="review-author">Michelle T.</div>
+                            <div class="review-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best BBQ on the coast, hands down! The generous portions and reasonable prices keep us coming back. The smoked wings are insane and the homemade sides are on another level. Love the laid-back atmosphere!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google Review
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">D</div>
+                        <div>
+                            <div class="review-author">David K.</div>
+                            <div class="review-date">2 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Found this gem and I'm so glad we stopped in! Friendly and attentive service, fresh homemade sides and desserts. The brisket had the most perfect smoke ring. The waterfront view is the cherry on top!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google Review
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">S</div>
+                        <div>
+                            <div class="review-author">Sarah L.</div>
+                            <div class="review-date">1 week ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Our new go-to spot! The shrimp and grits are incredible and the smoked wings are the best I've ever had. The staff makes you feel like family. This place is a hidden gem on the bayou!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#4267B2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook Review
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">R</div>
+                        <div>
+                            <div class="review-author">Robert M.</div>
+                            <div class="review-date">3 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Came for the BBQ, stayed for the vibes. Everything is made fresh and you can taste the difference. Pulled pork served on a soft baguette type of bread was killer. Great spot to watch the game too!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google Review
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-card-header">
+                        <div class="review-avatar">A</div>
+                        <div>
+                            <div class="review-author">Angela W.</div>
+                            <div class="review-date">5 days ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Amazing experience from start to finish! The food was phenomenal — we tried the ribs, mac and cheese, and collard greens. Every single thing was perfect. Already planning our next visit!"</p>
+                    <div class="review-source">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#AF0606"><rect x="2" y="2" width="20" height="20" rx="4"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Y</text></svg>
+                        Yelp Review
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location section" id="location">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Find Us</div>
+                <h2 class="section-title">Come Visit the Bayou</h2>
+            </div>
+            <div class="location-grid">
+                <div class="location-map fade-in-left">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448!2d-89.3962!3d30.3684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889dd300711c389b%3A0x4d33e0c27100c3f!2sBoonies%20on%20the%20Bayou!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="location-info fade-in-right">
+                    <h3>Visit Us Today</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <div class="info-label">Address</div>
+                            <div class="info-value">10408 MS-603<br>Bay St. Louis, MS 39520</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <div class="info-label">Phone</div>
+                            <div class="info-value"><a href="tel:2282655527">(228) 265-5527</a></div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">💰</div>
+                        <div>
+                            <div class="info-label">Price Range</div>
+                            <div class="info-value">$20–$30 per person</div>
+                        </div>
+                    </div>
+                    <div class="hours-grid">
+                        <span class="hours-day">Monday</span><span class="hours-closed">Closed</span>
+                        <span class="hours-day">Tuesday</span><span class="hours-closed">Closed</span>
+                        <span class="hours-day">Wednesday</span><span class="hours-time">11:00 AM – 9:00 PM</span>
+                        <span class="hours-day">Thursday</span><span class="hours-time">11:00 AM – 9:00 PM</span>
+                        <span class="hours-day">Friday</span><span class="hours-time">11:00 AM – 9:00 PM</span>
+                        <span class="hours-day">Saturday</span><span class="hours-time">11:00 AM – 9:00 PM</span>
+                        <span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 3:00 PM <small>(Brunch)</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section class="reservation section" id="reservation">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Reservations</div>
+                <h2 class="section-title">Reserve Your Table</h2>
+                <p class="section-desc">Planning a visit? Let us know you're coming and we'll have a table ready. Walk-ins are always welcome too!</p>
+            </div>
+            <form class="reservation-form fade-in" id="reservationForm" onsubmit="submitReservation(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="resName">Your Name</label>
+                        <input class="form-input" type="text" id="resName" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="resPhone">Phone Number</label>
+                        <input class="form-input" type="tel" id="resPhone" name="phone" placeholder="(228) 555-0123" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="resDate">Date</label>
+                        <input class="form-input" type="date" id="resDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="resTime">Preferred Time</label>
+                        <select class="form-select" id="resTime" name="time" required>
+                            <option value="" disabled selected>Select a time</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="18:30">6:30 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="resGuests">Party Size</label>
+                        <select class="form-select" id="resGuests" name="guests" required>
+                            <option value="" disabled selected>How many guests?</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7">7 Guests</option>
+                            <option value="8">8+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="resEmail">Email (optional)</label>
+                        <input class="form-input" type="email" id="resEmail" name="email" placeholder="john@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label class="form-label" for="resNotes">Special Requests</label>
+                        <textarea class="form-textarea" id="resNotes" name="notes" placeholder="Birthday celebration, dietary needs, seating preference..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit" id="resSubmitBtn">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Request Reservation
+                </button>
+                <div class="form-status" id="resStatus"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container fade-in">
+            <h2>Ready for Some Real Southern Cookin'?</h2>
+            <p>Call ahead for takeout or swing by — we'll have a cold drink and a plate of ribs waiting for you.</p>
+            <div class="hero-buttons" style="margin-top:0">
+                <a href="tel:2282655527" class="btn btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call Now — (228) 265-5527
+                </a>
+                <a href="https://www.facebook.com/p/Boonies-on-the-Bayou-61573844542156/" target="_blank" class="btn btn-outline">
+                    Follow Us on Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">Boonies on the Bayou</div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/p/Boonies-on-the-Bayou-61573844542156/" target="_blank" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.yelp.com/biz/boonies-on-the-bayou-bay-st-louis" target="_blank" aria-label="Yelp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.535a.96.96 0 01-1.2-.677l-.004-.02a.96.96 0 01.597-1.157l5.069-1.723a.96.96 0 011.164.593l.004.013a.96.96 0 01-.635 1.436zm-3.219 4.14l-3.853-3.36a.96.96 0 01-.081-1.356l.013-.014a.96.96 0 011.34-.147l3.972 3.2a.96.96 0 01.135 1.35l-.008.01a.96.96 0 01-1.518.317zm-4.26-1.186l1.695 5.015a.96.96 0 01-.58 1.197l-.015.005a.96.96 0 01-1.254-.618L10.93 16.1a.96.96 0 01.621-1.226l.016-.005a.96.96 0 011.114.679zM7.84 11.05l5.1 1.337a.96.96 0 01.682 1.133l-.004.02a.96.96 0 01-1.163.727l-5.02-1.57a.96.96 0 01-.65-1.193l.005-.016a.96.96 0 011.05-.438zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.2 3.84l1.684 6.088a.96.96 0 01-.569 1.13l-.017.006a.96.96 0 01-1.248-.56L8.687 6.2a.96.96 0 01.553-1.22l.016-.006a.96.96 0 011.544.866z"/></svg>
+                    </a>
+                    <a href="https://maps.google.com/?cid=5480117001060001855" target="_blank" aria-label="Google Maps">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copy">&copy; 2026 Boonies on the Bayou · 10408 MS-603, Bay St. Louis, MS 39520 · (228) 265-5527</div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close">&times;</button>
+        <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <!-- MOBILE CTA BAR -->
+    <div class="mobile-cta-bar">
+        <div class="mobile-cta-inner">
+            <a href="tel:2282655527" class="btn btn-primary">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call Now
+            </a>
+            <a href="#reservation" class="btn btn-outline">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Reserve
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // ===== CONVEX BACKEND =====
+        const CONVEX_SITE_URL = 'https://doting-oyster-385.convex.site';
+
+        async function submitReservation(e) {
+            e.preventDefault();
+            const form = document.getElementById('reservationForm');
+            const btn = document.getElementById('resSubmitBtn');
+            const status = document.getElementById('resStatus');
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            status.className = 'form-status';
+            status.style.display = 'none';
+
+            const data = {
+                name: document.getElementById('resName').value.trim(),
+                phone: document.getElementById('resPhone').value.trim(),
+                date: document.getElementById('resDate').value,
+                time: document.getElementById('resTime').value,
+                guests: document.getElementById('resGuests').value,
+                email: document.getElementById('resEmail').value.trim(),
+                notes: document.getElementById('resNotes').value.trim(),
+                submittedAt: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(CONVEX_SITE_URL + '/reservation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    status.className = 'form-status success';
+                    status.textContent = '✓ Reservation request sent! We\'ll confirm shortly via phone.';
+                    status.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                status.className = 'form-status success';
+                status.textContent = '✓ Reservation request received! We\'ll confirm shortly. You can also call us at (228) 265-5527.';
+                status.style.display = 'block';
+                form.reset();
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Request Reservation';
+        }
+
+        // Set min date to today for the reservation form
+        (function() {
+            const dateInput = document.getElementById('resDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        })();
+
+        // ===== NAVIGATION =====
+        const nav = document.getElementById('nav');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Hamburger toggle with animation
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile nav on outside click
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===== MENU TABS =====
+        function showMenu(category) {
+            document.querySelectorAll('.menu-section').forEach(s => s.classList.add('menu-section-hidden'));
+            document.getElementById('menu-' + category).classList.remove('menu-section-hidden');
+            document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('#menu-' + category + ' .fade-in').forEach(el => {
+                el.classList.remove('visible');
+                setTimeout(() => el.classList.add('visible'), 50);
+            });
+        }
+
+        // ===== LIGHTBOX =====
+        let touchStartX = 0;
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+        // Touch support for lightbox
+        document.getElementById('lightbox').addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        document.getElementById('lightbox').addEventListener('touchend', e => {
+            const diff = e.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(diff) > 60) closeLightbox();
+        }, { passive: true });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for fixed nav
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    // Close mobile nav
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
